@@ -1,0 +1,13 @@
+auto generated, do not change !!!! 
+
+HOST : app
+
+主进程页面1
+/msg/demo/1
+
+主进程页面2
+/msg/demo/2
+
+remote进程页面
+/msg/demo/3
+

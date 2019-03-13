@@ -1,0 +1,10 @@
+ext {
+    android = [compileSdkVersion: 28,
+               buildToolsVersion: "28.0.3",
+               applicationId    : "com.dpzx.online",
+               minSdkVersion    : 16,
+               targetSdkVersion : 26,
+               versionCode      : 500,
+               versionName      : "5.0.0    "]
+    dependencies = []
+}
