@@ -1,10 +1,35 @@
 ext {
+    SUPPORT_VERSION = "28.0.0"
+
     android = [compileSdkVersion: 28,
                buildToolsVersion: "28.0.3",
                applicationId    : "com.dpzx.online",
                minSdkVersion    : 16,
                targetSdkVersion : 26,
                versionCode      : 500,
-               versionName      : "5.0.0    "]
-    dependencies = []
+               versionName      : "5.0.0 "]
+
+    dependencies = [
+            //Android系统
+            "support-v7" : "com.android.support:appcompat-v7:${SUPPORT_VERSION}",
+            "support-v4" : "com.android.support:support-v4:${SUPPORT_VERSION}",
+            "design"     : "com.android.support:design:${SUPPORT_VERSION}",
+//            "constraint" : "com.android.support.constraint:constraint-layout:${CONSTRAIT_SUPPORT_VERSION}",
+            "cardview-v7": "com.android.support:cardview-v7:${SUPPORT_VERSION}",
+            //组件化依赖库
+            jimu         : [
+                    'componentLib'        : 'com.github.jimu:componentlib:1.3.3',
+                    'router_anno'         : 'com.github.jimu:router-annotation:1.0.1',
+                    'router_anno_compiler': 'com.github.jimu:router-anno-compiler:1.0.1',
+                    'gradle_plugin'       : 'com.github.jimu:build-gradle:1.3.3'
+            ],
+            publish      : [
+                    'jcenter': 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2',
+                    'maven'  : 'com.github.dcendents:android-maven-gradle-plugin:1.5',
+            ],
+            eventbus     : 'org.greenrobot:eventbus:3.0.0',
+            okhttp       : 'com.squareup.okhttp3:okhttp:3.13.1',
+            multidex     : "com.android.support:multidex:1.0.1",
+            gson         : 'com.google.code.gson:gson:2.8.2'
+    ]
 }
