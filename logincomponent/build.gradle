@@ -1,12 +1,13 @@
 //apply plugin: 'com.android.application'
 apply plugin: 'com.dd.comgradle'
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.androidTools
+    def versions = rootProject.ext.android
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
      //   applicationId "com.zhxh.xjimudemo"
@@ -50,6 +51,7 @@ android {
 }
 
 dependencies {
+    def deps = rootProject.ext.dependencies
     api project(':componentservice')
 //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 //    implementation 'com.android.support:design:28.0.0'

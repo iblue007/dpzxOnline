@@ -2,12 +2,13 @@ apply plugin: 'com.android.library'
 //apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.androidTools
+    def versions = rootProject.ext.android
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion versions.minSdk
-        targetSdkVersion versions.targetSdk
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -26,7 +27,7 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation deps.junit
+  //  testImplementation deps.junit
    // api deps.kotlin.kotlin_jdk7
 }
 repositories {
