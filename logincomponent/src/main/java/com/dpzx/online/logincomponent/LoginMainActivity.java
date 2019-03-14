@@ -20,12 +20,14 @@ import com.dpzx.online.baselib.utils.ApplicationUtil;
 import com.dpzx.online.baselib.utils.EventBusMessageEvent;
 import com.dpzx.online.baselib.utils.MessageUtils;
 import com.dpzx.online.baselib.utils.ThreadUtil;
+import com.dpzx.online.corlib.app.BaseActivity;
+import com.luojilab.component.componentlib.router.ui.UIRouter;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 import org.greenrobot.eventbus.EventBus;
 
 @RouteNode(path = "/login/loginmain", desc = "登录的页面")
-public class LoginMainActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginMainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button loginLoginTv;
     private EditText pwdEt;
@@ -38,8 +40,7 @@ public class LoginMainActivity extends AppCompatActivity implements View.OnClick
     private TextView forgetPwdTv;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void setLayout() {
         setContentView(R.layout.login_activity_main);
         ApplicationUtil.init(getApplicationContext());
         loginLoginTv = findViewById(R.id.login_login_tv);
@@ -107,7 +108,6 @@ public class LoginMainActivity extends AppCompatActivity implements View.OnClick
         });
     }
 
-
     @Override
     public void onClick(View v) {
 
@@ -142,6 +142,7 @@ public class LoginMainActivity extends AppCompatActivity implements View.OnClick
             startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
         }else if(v == forgetPwdTv){
             EventBus.getDefault().post(new EventBusMessageEvent("欢迎大家浏览我写的博客"));
+            //UIRouter.getInstance().openUri(LoginMainActivity.this, "JIMU://message/message/messageactivity", null);
         }
     }
 

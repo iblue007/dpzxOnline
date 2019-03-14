@@ -28,12 +28,17 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.main_login_cl).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Log.e("======","======click");
+                // Log.e("======","======click");
                 Bundle bundle = new Bundle();
                 bundle.putString("bookName", "Gone with the Wind");
                 bundle.putString("author", "000000");
-                UIRouter.getInstance().openUri(MainActivity.this, "JIMU://login/login/loginmain", bundle);
-//                UIRouter.getInstance().openUri(MainActivity.this, "JIMU://login/login/loginmain", null);
+                UIRouter.getInstance().openUri(MainActivity.this, "JIMU://login/login/loginmain", null);
+            }
+        });
+        findViewById(R.id.main_message_cl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIRouter.getInstance().openUri(MainActivity.this, "JIMU://message/message/messageactivity", null);
             }
         });
 
@@ -41,13 +46,13 @@ public class MainActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void Event(EventBusMessageEvent messageEvent) {
-        Log.e("======","======"+messageEvent.getMessage());
+        Log.e("======", "======" + messageEvent.getMessage());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(EventBus.getDefault().isRegistered(this)) {
+        if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
     }

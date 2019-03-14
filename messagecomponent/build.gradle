@@ -1,5 +1,5 @@
-//apply plugin: 'com.android.application'
 apply plugin: 'com.dd.comgradle'
+//apply plugin: 'com.android.application'
 android {
     def versions = rootProject.ext.android
     compileSdkVersion versions.compileSdkVersion
@@ -10,18 +10,19 @@ android {
         targetSdkVersion versions.targetSdkVersion
         versionCode 1
         versionName "1.0"
-     //   applicationId "com.zhxh.xjimudemo"
+        //   applicationId "com.zhxh.xjimudemo"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [host: "login"]
+                arguments = [host: "message"]
             }
         }
         multiDexEnabled true
-       // vectorDrawables.useSupportLibrary = true
+        // vectorDrawables.useSupportLibrary = true
 
     }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -41,9 +42,7 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
-
-    resourcePrefix "login_"
-
+    resourcePrefix "message_"
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -57,7 +56,7 @@ dependencies {
 }
 
 combuild {
-    applicationName = 'com.dpzx.online.logincomponent.runalone.application.loginRunAloneApplication'
+    applicationName = 'com.dpzx.online.messagecomponent.runalone.application.messageCenterAloneApplication'
     isRegisterCompoAuto = true
 }
 repositories {
