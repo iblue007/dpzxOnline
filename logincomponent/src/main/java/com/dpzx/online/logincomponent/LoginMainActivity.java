@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.dpzx.online.baselib.base.ServerResult;
 import com.dpzx.online.baselib.base.ServerResultHeader;
 import com.dpzx.online.baselib.bean.VideoPaperBean;
+import com.dpzx.online.baselib.config.BaseConfigPreferences;
 import com.dpzx.online.baselib.config.Global;
 import com.dpzx.online.baselib.network.NetApiUtil;
 import com.dpzx.online.baselib.utils.ApplicationUtil;
@@ -56,7 +57,6 @@ public class LoginMainActivity extends BaseActivity implements View.OnClickListe
         phoneClear.setOnClickListener(this);
         toRegisterTv.setOnClickListener(this);
         forgetPwdTv.setOnClickListener(this);
-
 
         pwdEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -115,7 +115,7 @@ public class LoginMainActivity extends BaseActivity implements View.OnClickListe
             ThreadUtil.executeMore(new Runnable() {
                 @Override
                 public void run() {
-                    ServerResult<VideoPaperBean> login = NetApiUtil.getLogin(phoneStr, pwdStr, null);
+                    ServerResult<VideoPaperBean> login = NetApiUtil.postLoginAccount(phoneStr, pwdStr, null);
                     boolean requestOK = login.getCsResult().isRequestOK();
                     if (!requestOK) {
                         Global.runInMainThread(new Runnable() {
@@ -127,7 +127,6 @@ public class LoginMainActivity extends BaseActivity implements View.OnClickListe
                                 Log.e("======", "======" + resultMessage + "--requestOK:" + requestOK);
                             }
                         });
-
                     }
                 }
             });
@@ -142,6 +141,8 @@ public class LoginMainActivity extends BaseActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
         }else if(v == forgetPwdTv){
             EventBus.getDefault().post(new EventBusMessageEvent("欢迎大家浏览我写的博客"));
+            String loginAccount = BaseConfigPreferences.getInstance(getApplicationContext()).getLoginAccount();
+            Log.e("======","======loginAccount:"+loginAccount);
             //UIRouter.getInstance().openUri(LoginMainActivity.this, "JIMU://message/message/messageactivity", null);
         }
     }

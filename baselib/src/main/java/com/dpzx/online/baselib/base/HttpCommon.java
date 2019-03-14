@@ -125,20 +125,26 @@ public class HttpCommon {
         return header;
     }
 
-    public ServerResultHeader getResponseAsCsResult(String method, HashMap<String, String> headerParamsMap, String jsonParams) {
+    public ServerResultHeader getResponseAsCsResultGet(HashMap<String, String> headerParamsMap, String jsonParams) {
+        ServerResultHeader header = getResponseAsCsResult(HttpMethod.GET, headerParamsMap, jsonParams);
+        return header;
+    }
+
+    public ServerResultHeader getResponseAsCsResult(String httpMethod, HashMap<String, String> headerParamsMap, String jsonParams) {
         csResult.setbNetworkProblem(false);
         String responseStr = null;
         InputStream is = null;
         OkHttpClient client = null;
         try {
+            //final String httpMethod = TextUtils.isEmpty(method) ? HttpMethod.POST : HttpMethod.GET;
             Request.Builder builder = new Request.Builder();
-
-            RequestBody body = RequestBody.create(JSON, jsonParams);
-            final String httpMethod = TextUtils.isEmpty(method) ? HttpMethod.POST : method.toUpperCase();
+            builder.url(url);
 //            if (HttpMethod.POST.equalsIgnoreCase(httpMethod) || HttpMethod.PUT.equalsIgnoreCase(httpMethod)) {
 //            }
-            builder.url(url);
-            builder.method(httpMethod, body);
+            if(httpMethod.equals(HttpMethod.POST)){
+                RequestBody body = RequestBody.create(JSON, jsonParams);
+                builder.method(httpMethod, body);
+            }
 
             if (null != headerParamsMap) {
                 for (String key : headerParamsMap.keySet()) {

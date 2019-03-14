@@ -26,6 +26,8 @@ public class ServerResultHeader implements Serializable {
      */
     private String resultMessage;
 
+    private boolean datas;
+
     /**
      * 接口响应内容的处理方式 0-原始内容 1- Gzip压缩
      */
@@ -125,6 +127,14 @@ public class ServerResultHeader implements Serializable {
 
     public void setInterceptor(ServerResultInterceptor interceptor) {
         this.interceptor = interceptor;
+    }
+
+    public boolean getDatas() {
+        return datas;
+    }
+
+    public void setDatas(boolean datas) {
+        this.datas = datas;
     }
 
     @Override

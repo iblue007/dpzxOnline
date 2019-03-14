@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.dpzx.online.baselib.config.BaseConfigPreferences;
 import com.dpzx.online.baselib.utils.EventBusMessageEvent;
 import com.dpzx.online.corlib.app.BaseActivity;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
@@ -42,6 +43,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        BaseConfigPreferences.getInstance(getApplicationContext()).setLoginAccount("1778888888888");
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

@@ -10,6 +10,7 @@ import android.view.View;
 import com.dpzx.online.baselib.config.ActivityRequestContext;
 import com.dpzx.online.corlib.helper.ActivityManager;
 import com.luojilab.component.componentlib.service.AutowiredService;
+import com.xlab.core.R;
 
 //import io.reactivex.disposables.CompositeDisposable;
 
