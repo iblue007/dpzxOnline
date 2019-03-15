@@ -1,0 +1,7 @@
+auto generated, do not change !!!! 
+
+HOST : message
+
+消息中心的页面
+/message/messageactivity
+
