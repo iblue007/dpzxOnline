@@ -46,7 +46,6 @@ public class HttpRequestParam {
         paramsMap.put("Accept-Language", "zh-CN,zh;q=0.9");
         paramsMap.put("User-Agent", getUserAgent(context));
         paramsMap.put("imei", NetLibUtil.getIMEI(context));
-        //   return paramsMap;
     }
 
     public static void addCommmonGetRequestValue(Context context, HashMap<String, String> paramsMap) {
@@ -56,7 +55,6 @@ public class HttpRequestParam {
         paramsMap.put("Accept-Language", "zh-CN,zh;q=0.9");
         paramsMap.put("User-Agent", getUserAgent(context));
         paramsMap.put("imei", NetLibUtil.getIMEI(context));
-        // return paramsMap;
     }
 
     public static String getUserAgent(Context context) {

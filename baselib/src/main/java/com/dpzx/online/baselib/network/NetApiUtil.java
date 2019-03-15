@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
- * @Description: 网络数据请求工具类</ br>
+ * @Description: 网络数据请求工具类</   br>
  * @author: cxy </br>
  * @date: 2017年05月04日 11:14.</br>
  * @update: </br>
@@ -100,7 +100,9 @@ public class NetApiUtil {
         return resTagList;
     }
 
-    /**发送注册短信验证码*/
+    /**
+     * 发送注册短信验证码
+     */
     public static final ServerResult<VideoPaperBean> postPhonecode(String phone) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("phone", phone);
@@ -133,8 +135,10 @@ public class NetApiUtil {
         return resTagList;
     }
 
-    /**商户注册*/
-    public static final ServerResult<VideoPaperBean> postUserRegister(String phone,String password,String identifyCodeId,String registerSource) {
+    /**
+     * 商户注册
+     */
+    public static final ServerResult<VideoPaperBean> postUserRegister(String phone, String password, String identifyCodeId, String registerSource) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("account", phone);
         linkedHashMap.put("password", password);
