@@ -1,9 +1,13 @@
 package com.dpzx.online.application;
 
+import android.content.Context;
 import com.dpzx.online.baselib.utils.ApplicationUtil;
 import com.dpzx.online.corlib.app.BaseApplication;
+import com.dpzx.online.corlib.imageloader.DisplayOptionUtil;
 import com.luojilab.component.componentlib.log.ILogger;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import org.github.jimu.msg.EventManager;
 
@@ -29,6 +33,18 @@ public class MainApplication extends BaseApplication {
 //                EventManager.create(AppComponentEventManager.class));
 
         ApplicationUtil.init(getApplicationContext());
-
+        initImageLoader(getApplicationContext());
     }
+
+    private void initImageLoader(Context context) {
+        try {
+            ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(context)
+                    .defaultDisplayImageOptions(DisplayOptionUtil.DEFAULT_OPTIONS)
+                    .build();
+            ImageLoader.getInstance().init(configuration);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
