@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">登录</string>
+
+
+
+    <string name="login_register_1_tip">请输入手机号</string>
+    <string name="login_register_2_tip">输入验证码</string>
+    <string name="login_register_3_tip">设置密码</string>
+
+    <string name="login_register_step1_submit">获取验证码</string>
+    <string name="login_register_step2_tip_title">短信验证码已发送到</string>
+
+    <string name="login_register_step3_submit">同意协议并注册</string>
+    <string name="login_register_step3_password_again">重复一次密码</string>
+    <string name="login_register_step3_password">请输入密码,6-12位</string>
+
+
 </resources>

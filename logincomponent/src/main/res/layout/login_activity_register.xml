@@ -22,9 +22,8 @@
             android:id="@+id/login_register_line"
             android:layout_width="200dp"
             android:layout_height="1dp"
-            android:background="#ebebeb"
             android:layout_centerHorizontal="true"
-            />
+            android:background="#ebebeb" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="请输入手机号" />
+                    android:text="@string/login_register_1_tip" />
 
             </LinearLayout>
 
@@ -62,6 +61,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/login_register_2_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="输入验证码" />
+                    android:text="@string/login_register_2_tip" />
 
             </LinearLayout>
 
@@ -84,6 +84,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/login_register_3_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -94,20 +95,22 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="设置密码" />
+                    android:text="@string/login_register_3_tip" />
 
             </LinearLayout>
 
         </LinearLayout>
     </RelativeLayout>
 
+    <!--第一步-->
     <LinearLayout
-        android:layout_below="@id/login_register_steps_rl"
-        android:layout_marginTop="60dp"
+        android:id="@+id/login_register_onestep_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_below="@id/login_register_steps_rl"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/login_register_common_use_phone"
@@ -146,8 +149,7 @@
             android:layout_height="1px"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="#ebebeb"
-            />
+            android:background="#ebebeb" />
 
         <Button
             android:id="@+id/login_register_code_tv"
@@ -156,15 +158,133 @@
             android:layout_below="@id/login_login_pwd_ll"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="22dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/common_tv_corner"
             android:enabled="true"
             android:gravity="center"
-            android:text="获取验证码"
+            android:text="@string/login_register_step1_submit"
             android:textColor="#ffffff" />
 
     </LinearLayout>
 
+    <!--第二步-->
+    <LinearLayout
+        android:id="@+id/login_register_twostep_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_register_steps_rl"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_register_step2_tip_title"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="18084725150"/>
+        </LinearLayout>
+
+        <com.dpzx.online.logincomponent.widget.PhoneCodeView
+            android:id="@+id/login_register_phonecode_view"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--第三步-->
+    <LinearLayout
+        android:id="@+id/login_register_threestep_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_register_steps_rl"
+        android:layout_marginTop="60dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/login_login_pwd_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/login_register_step3_password"
+                android:textColor="#232323"
+                android:textColorHint="#dddddd"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/login_login_pwd_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/login_login_clear"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/login_login_pwd_et2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/login_register_step3_password_again"
+                android:textColor="#232323"
+                android:textColorHint="#dddddd"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/login_login_pwd_clear2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/login_login_clear"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_register_code_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/login_login_pwd_ll"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/common_tv_corner"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/login_register_step3_submit"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
 </RelativeLayout>
