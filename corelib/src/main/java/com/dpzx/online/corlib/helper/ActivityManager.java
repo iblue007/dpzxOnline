@@ -39,6 +39,7 @@ public class ActivityManager {
                 Log.d(TAG, "ActivityManager.popActivity.stack.size=" + activityStack.size());
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
