@@ -2,9 +2,7 @@ package com.dpzx.online.application;
 
 import com.dpzx.online.baselib.utils.ApplicationUtil;
 import com.dpzx.online.corlib.app.BaseApplication;
-import com.dpzx.online.msg.AppComponentEventManager;
 import com.luojilab.component.componentlib.log.ILogger;
-import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
 
 import org.github.jimu.msg.EventManager;
